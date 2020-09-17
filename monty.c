@@ -3,9 +3,9 @@
 #include "monty.h"
 char *line;
 /**
- *main - entry point for interpretor
+ *main - Entry point for monty interpretor
  *@ac: the number of command line arguments
- *@av: the array of command line argument strings
+ *@av: the array of command line arguments string
  *
  *Return: 0 always
  */
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 	FILE *file;
 	unsigned int line_number = 0;
 	char *opcode;
-	ssize_t chars_read = 0;
+	ssize_t instruction = 0;
 	size_t size;
 
 	if (ac != 2)
@@ -30,13 +30,13 @@ int main(int ac, char **av)
 		printf("Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (chars_read != -1)
+	while (instruction != -1)
 	{
 		line = NULL;
 		size = 0;
 		i = 0;
 		j = 0;
-		chars_read = getline(&line, &size, file);
+		instruction = getline(&line, &size, file);
 		line_number++;
 		while (line[j] == ' ')
 			j++;
