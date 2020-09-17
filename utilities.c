@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "global.h"
 /**
  *push - pushes a value onto the stack
  *@stack: pointer to the top of the stack

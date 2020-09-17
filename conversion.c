@@ -1,4 +1,3 @@
-#include "global.h"
 #include "monty.h"
 /**
  *pchar - prints the char at the top of the stack

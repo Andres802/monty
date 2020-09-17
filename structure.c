@@ -1,4 +1,3 @@
-#include "global.h"
 #include "monty.h"
 /**
  *opcodecompare - compares opcodes and runs associated functions

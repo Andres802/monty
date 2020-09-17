@@ -1,5 +1,4 @@
 #define _GNU_SOURCE
-#include "global.h"
 #include "monty.h"
 char *line;
 /**
