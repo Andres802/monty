@@ -1,6 +1,5 @@
 #include "monty.h"
 #include "global.h"
-
 /**
  *getopcode - obtains the opcode of a Monty file from a global buffer
  *
@@ -10,7 +9,6 @@ char *getopcode(void)
 {
 	int i = 0, j = 0;
 	char *opcodebuffer;
-	char *line;
 
 	opcodebuffer = malloc(sizeof(char) * 10);
 	if (opcodebuffer == NULL)
