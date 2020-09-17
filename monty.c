@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 #include "global.h"
 #include "monty.h"
+char *line,
 /*char *line;*/
 /**
  *main - Entry point for monty interpretor
@@ -11,7 +12,7 @@
  */
 int main(int ac, char **av)
 {
-	char *line, char *opcode;
+	char *opcode;
 	stack_t *stack = NULL, ssize_t instruction = 0, size_t size;
 	int i = 0, j = 0, unsigned int line_number = 0;
 	FILE *file, ssize_t instruction = 0, size_t size;
