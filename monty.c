@@ -1,21 +1,23 @@
 #define _GNU_SOURCE
 #include "global.h"
 #include "monty.h"
-char *line,
-/*char *line;*/
+char *line;
 /**
- *main - Entry point for monty interpretor
+ *main - entry point for interpretor
  *@ac: the number of command line arguments
- *@av: the array of command line arguments string
+ *@av: the array of command line argument strings
  *
  *Return: 0 always
  */
 int main(int ac, char **av)
 {
+	stack_t *stack = NULL;
+	int i = 0, j = 0;
+	FILE *file;
+	unsigned int line_number = 0;
 	char *opcode;
-	stack_t *stack = NULL, ssize_t instruction = 0, size_t size;
-	int i = 0, j = 0, unsigned int line_number = 0;
-	FILE *file, ssize_t instruction = 0, size_t size;
+	ssize_t chars_read = 0;
+	size_t size;
 
 	if (ac != 2)
 	{
@@ -28,11 +30,13 @@ int main(int ac, char **av)
 		printf("Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (instruction != -1)
+	while (chars_read != -1)
 	{
-		line = NULL, size = 0;
-		i = 0, j = 0;
-		instruction = getline(&line, &size, file);
+		line = NULL;
+		size = 0;
+		i = 0;
+		j = 0;
+		chars_read = getline(&line, &size, file);
 		line_number++;
 		while (line[j] == ' ')
 			j++;
