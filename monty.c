@@ -1,7 +1,7 @@
 #define _GNU_SOURCE
 #include "global.h"
 #include "monty.h"
-char *line;
+/*char *line;*/
 /**
  *main - Entry point for monty interpretor
  *@ac: the number of command line arguments
@@ -11,13 +11,10 @@ char *line;
  */
 int main(int ac, char **av)
 {
-	stack_t *stack = NULL;
-	int i = 0, j = 0;
-	FILE *file;
-	unsigned int line_number = 0;
-	char *opcode;
-	ssize_t instruction = 0;
-	size_t size;
+	char *line, char *opcode;
+	stack_t *stack = NULL, ssize_t instruction = 0, size_t size;
+	int i = 0, j = 0, unsigned int line_number = 0;
+	FILE *file, ssize_t instruction = 0, size_t size;
 
 	if (ac != 2)
 	{
@@ -32,10 +29,8 @@ int main(int ac, char **av)
 	}
 	while (instruction != -1)
 	{
-		line = NULL;
-		size = 0;
-		i = 0;
-		j = 0;
+		line = NULL, size = 0;
+		i = 0, j = 0;
 		instruction = getline(&line, &size, file);
 		line_number++;
 		while (line[j] == ' ')
