@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "global.h"
 /**
  *getopcode - obtains the opcode of a Monty file from a global buffer
  *
@@ -25,4 +24,3 @@ char *getopcode(void)
 	opcodebuffer[j] = '\0';
 	return (opcodebuffer);
 }
-
