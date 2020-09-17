@@ -1,6 +1,6 @@
 #define _GNU_SOURCE
 #include "monty.h"
-char *line;
+
 /**
  *main - entry point for interpretor
  *@ac: the number of command line arguments
