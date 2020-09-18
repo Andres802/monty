@@ -1,23 +1,23 @@
 #include "monty.h"
 /**
- *free_stack - frees the stack used
- *@stack: the head of the stack to delete
- *
- *Return: void
+ * free_stack - frees the stack
+ * @stack: double pointer to the beggining of th stack (DLL)
+ * Return: void
  */
-void free_stack(stack_t *stack)
+void free_stack(stack_t **stack)
 {
-	stack_t *temp;
+	stack_t *aux_stack;
 
-	if (stack == NULL)
+	if (*stack == NULL)
 		return;
-
-	temp = stack->next;
-	while (temp != NULL)
+	while (*stack != NULL)
 	{
-		free(stack);
-		stack = temp;
-		temp = temp->next;
+		aux_stack = (*stack)->next;
+		free(*stack);
+		if (aux_stack == NULL)
+			return;
+		aux_stack->prev = NULL;
+		*stack = aux_stack;
 	}
 	free(stack);
 }
