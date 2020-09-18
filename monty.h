@@ -1,16 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
-
-/* LIBRARIES INCLUDED */
-
+/* Libraries 📂 */
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-
-
+#include <ctype.h>
+#include <stdarg.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -26,7 +22,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -41,26 +36,41 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* GLOBAL VARIABLE */
-extern char *line;
-char *line;
+/**
+ * struct _globales - struct for global variables
+ * @linestr: string of the getline
+ * @fd: file descriptor
+ * @head: the head of the stack
+ */
+typedef struct _globales
+{
+	char *linestr;
+	FILE *fd;
+	stack_t *head;
+} var;
 
-/* FUNCTION PROTOTYPES */
-void opcodecompare(stack_t **stack, unsigned int line_number, char *opcode);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void divide(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
-int _strcmp(char *s1, char *s2);
-char *getopcode(void);
-void free_stack(stack_t *stack);
-FILE *open_file(char **av);
-#endif
+var *v;
+void _open(char *file);
+void _readfile(void);
+void _read_lines(int line);
+void call_func(char *op, char *val);
+void find_fn(char *opcode, char *val, int line);
+stack_t *create_node(int n);
+void pop_func(stack_t **node, unsigned int line_number);
+void push_func(stack_t **node, unsigned int line_number);
+void pall_func(stack_t **node, unsigned int line_number);
+void pint_func(stack_t **node, unsigned int line_number);
+void swap_func(stack_t **node, unsigned int line);
+void add_func(stack_t **node, unsigned int line);
+void nop_func(stack_t **node, unsigned int line);
+void sub_func(stack_t **stack, unsigned int line);
+void mul_func(stack_t **stack, unsigned int line);
+void div_func(stack_t **stack, unsigned int line);
+void mod_func(stack_t **stack, unsigned int line);
+void pchar_func(stack_t **stack, unsigned int line);
+void pstr_func(stack_t **stack, unsigned int line);
+void rotl_func(stack_t **stack, unsigned int line);
+void rotr_func(stack_t **stack, unsigned int line);
+void free_nodes(void);
+void error_handler(int ID_case, char *opcode, int line);
+#endif /* LISTS_H */
