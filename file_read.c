@@ -10,7 +10,7 @@ void read_file(char *file_name)
 	int line_number = 0;
 	char **tokens, *buffer = NULL;
 	size_t size = 0;
-	/* object type for storing information for a file stream */
+
 	FILE *file_data;
 	void (*s)(stack_t **stack, unsigned int line_number);
 
