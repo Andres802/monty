@@ -4,12 +4,12 @@
 /* LIBRARIES INCLUDED */
 
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <unistd.h>
 #include <fcntl.h>
-
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,26 +41,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* GLOBAL VARIABLE */
-extern char *line;
-char *line;
+extern int global_var;
+int global_var;
 
-/* FUNCTION PROTOTYPES */
-void opcodecompare(stack_t **stack, unsigned int line_number, char *opcode);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void divide(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
-int _strcmp(char *s1, char *s2);
-char *getopcode(void);
-void free_stack(stack_t *stack);
-FILE *open_file(char **av);
+/* interpreter funciontions */
+void read_file(char *file_name);
+void free_stack(stack_t **stack);
+char **tokenize(char *buffer);
+int check_args(char *tk);
+void (*op_functions(char **tks, unsigned int ln))(stack_t **, unsigned int);
+void handler_errors(unsigned int line_number, int type_err);
+
+/* opcode functions */
+void pall_func(stack_t **stack, unsigned int line_number);
+void push_func(stack_t **stack, unsigned int line_number);
+void pint_func(stack_t **stack, unsigned int line_number);
+void pop_func(stack_t **stack, unsigned int line_number);
+void swap_func(stack_t **stack, unsigned int line_number);
+void add_func(stack_t **stack, unsigned int line_number);
+void nop_func(stack_t **stack, unsigned int line_number);
+void sub_func(stack_t **stack, unsigned int line_number);
+
 #endif
