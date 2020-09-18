@@ -61,7 +61,6 @@ void swap_func(stack_t **stack, unsigned int line_number);
 void add_func(stack_t **stack, unsigned int line_number);
 void nop_func(stack_t **stack, unsigned int line_number);
 void sub_func(stack_t **stack, unsigned int line_number);
-void sub_div(stack_t **stack, unsigned int line_number);
-size_t dlistint_len(const stack_t *h);
+
 
 #endif

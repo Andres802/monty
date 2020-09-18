@@ -16,7 +16,6 @@ void (*op_functions(char **tks, unsigned int ln))(stack_t **, unsigned int)
 		{"add", add_func},
 		{"nop", nop_func},
 		{"sub", sub_func},
-		{"div", sub_div},
 		{NULL, NULL}
 	};
 	unsigned int src = 0;
