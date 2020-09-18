@@ -23,18 +23,12 @@ int main(int ac, char **av)
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(av[1], "r");
-	if (file == NULL)
-	{
-		printf("Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
-	}
+	file = open_file(av);
+
 	while (chars_read != -1)
 	{
 		line = NULL;
-		size = 0;
-		i = 0;
-		j = 0;
+		size = 0, i = 0, j = 0;
 		chars_read = getline(&line, &size, file);
 		line_number++;
 		while (line[j] == ' ')

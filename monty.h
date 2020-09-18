@@ -62,4 +62,5 @@ void pchar(stack_t **stack, unsigned int line_number);
 int _strcmp(char *s1, char *s2);
 char *getopcode(void);
 void free_stack(stack_t *stack);
+FILE *open_file(char **av);
 #endif
