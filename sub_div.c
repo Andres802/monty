@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * stack_div - divide the top elements on the stack
+ * sub_div - divide the top elements on the stack
  * @stack: Double pointer input
  * @line_number: line number
  *
@@ -17,7 +17,7 @@ void sub_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	x += (*stack)->n;
-	stack_pop(stack, line_number);
+	pop_func(stack, line_number);
 	if (x == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
